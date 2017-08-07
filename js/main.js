@@ -2,6 +2,7 @@
 (function(){
 'use strict';
 
+
 // filtering out commonWords list to words > 3 characters //
 commonWords = commonWords.filter(function(word){
   return word.length > 3;
@@ -46,6 +47,7 @@ for (let i = 0; i < alphabet.length; i++) {
     pushLetter(chosenButton);
   }
     checkStatus();
+    newGame();
   });
   // console.log(button);
 }
@@ -71,9 +73,9 @@ console.log(guessedLetters.length);
     body.appendChild(happyBox);
     happyBox.textContent = 'You Win! Good on ya Mate!';
   }
-  // console.log(allSpansArray);
-
+// console.log(allSpansArray);
 }
+
 
 // defining body //
 function pushLetter(button){
@@ -83,11 +85,12 @@ function pushLetter(button){
   button.style.backgroundColor = "black";
   if(!guessedLetters.includes(selection)){
     guessedLetters.push(selection);
-    let lives = document.createElement('div');
-    lives.className = 'lives';
-    lives.textContent = 'Guesses Remaining: ' + (8 - guessedLetters.length);
-    body.appendChild(lives);
   }
+  let lives = document.createElement('div');
+  lives.className = 'lives';
+  let livesLeft = 8 - guessedLetters.length;
+  lives.textContent = 'Guesses Remaining: ' + livesLeft;
+  body.appendChild(lives);
   // console.log(guessedLetters);
 }
 
@@ -109,27 +112,30 @@ function checkGuess(button){
 }
 
 
-// if allspans[index].textContent === splitWord[index].textContent {
-//  alert('YOU WIN')}
+// Start new game reload?
 
-
-// join contents of guessedLetters array & push to newArray then if randomWord ===
-// newArray alert('YOU WIN')
-
-//  newArray = guessedLetters.join
-
-
-// let guessedWord = guessedLetters.join
-// if guessedWord === randomWord alert('You Win')
-
-
-
-
-
-
-
-
+// let startNewButton = document.createElement('button');
+//   startNewButton.textContent = 'Give it another go';
+//   startNewButton.eventListener = ('click', function(e){
+//     window.location.reload();
+//   });
 //
+// body.appendChild(startNewButton);
+
+
+// function newGame(){
+//   let startNew = document.createElement('button');
+//   startNew.textContent = 'Play Again';
+//   body.appendChild(startNew);
+//   if (happyBox || sorryBox){
+//     window.location.reload(e);
+//   }
+// }
+
+
+
+
+
 
 
 
